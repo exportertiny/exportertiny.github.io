@@ -5,13 +5,13 @@ github: https://github.com/tobyink/p5-exporter-tiny
 issues: https://github.com/tobyink/p5-exporter-tiny/issues
 copyright: "Copyright © 2023 Toby Inkster. All rights reserved."
 theme:
-  light: "#cfe2f0"
-  dark: "#040408"
-  primary: "#00aebf"
-  secondary: "#3a77ab"
-  info: "#b43697"
-  success: "#00ae52"
-  warning: "#edcb00"
-  danger: "#f90029"
+  light: "#cefaeb"
+  dark: "#25205c"
+  primary: "#264a5a"
+  secondary: "#8f4158"
+  info: "#b3a7ae"
+  success: "#2ea05b"
+  warning: "#e5c930"
+  danger: "#ef1a26"
 homepage:
   animation: waves1
