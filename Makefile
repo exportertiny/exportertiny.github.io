@@ -3,7 +3,7 @@ all : styles scripts images pages
 
 .PHONY: clean
 clean :
-	rm -fr _build dist
+	rm -fr _build docs
 
 .PHONY: install
 install :
@@ -12,18 +12,18 @@ install :
 
 .PHONY: images
 images :
-	mkdir -p dist/assets/
-	cp -r images dist/assets/
+	mkdir -p docs/assets/
+	cp -r images docs/assets/
 
 .PHONY: styles
-styles : dist/assets/styles/main.css
+styles : docs/assets/styles/main.css
 
 .PHONY: scripts
-scripts : dist/assets/scripts/bootstrap.bundle.min.js dist/assets/scripts/bootstrap.bundle.min.js.map
+scripts : docs/assets/scripts/bootstrap.bundle.min.js docs/assets/scripts/bootstrap.bundle.min.js.map
 
 .PHONY: pages
 pages :
-	mkdir -p dist
+	mkdir -p docs
 	perl -Ilib -MWeb::PerlDistSite::Compile -e write_pages
 
 _build/main.scss :
@@ -35,14 +35,14 @@ _build/custom.scss :
 _build/variables.scss : config.yaml
 	perl -Ilib -MWeb::PerlDistSite::Compile -e write_variables_scss
 
-dist/assets/styles/main.css : _build/main.scss _build/variables.scss _build/custom.scss
-	mkdir -p dist/assets/styles
-	node node_modules/sass/sass.js --style=compressed _build/main.scss:dist/assets/styles/main.css
+docs/assets/styles/main.css : _build/main.scss _build/variables.scss _build/custom.scss
+	mkdir -p docs/assets/styles
+	node node_modules/sass/sass.js --style=compressed _build/main.scss:docs/assets/styles/main.css
 
-dist/assets/scripts/bootstrap.bundle.min.js :
-	mkdir -p dist/assets/scripts
-	cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js dist/assets/scripts/bootstrap.bundle.min.js
+docs/assets/scripts/bootstrap.bundle.min.js :
+	mkdir -p docs/assets/scripts
+	cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js docs/assets/scripts/bootstrap.bundle.min.js
 
-dist/assets/scripts/bootstrap.bundle.min.js.map :
-	mkdir -p dist/assets/scripts
-	cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map dist/assets/scripts/bootstrap.bundle.min.js.map
+docs/assets/scripts/bootstrap.bundle.min.js.map :
+	mkdir -p docs/assets/scripts
+	cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map docs/assets/scripts/bootstrap.bundle.min.js.map

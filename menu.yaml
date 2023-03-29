@@ -4,24 +4,24 @@
 - name: docs
   title: Manual
   children:
-    - name: docs/quickstart
+    - name: manual/quickstart
       title: Quick Start
       pod: Exporter::Tiny::Manual::QuickStart
-    - name: docs/exporting
+    - name: manual/exporting
       title: Exporting
       pod: Exporter::Tiny::Manual::Exporting
-    - name: docs/importing
+    - name: manual/importing
       title: Importing
       pod: Exporter::Tiny::Manual::Importing
-    - name: docs/etc
+    - name: manual/etc
       title: Etc
       pod: Exporter::Tiny::Manual::Etc
     - divider:
-    - name: docs/Exporter-Tiny
+    - name: manual/Exporter-Tiny
       pod: Exporter::Tiny
-    - name: docs/Exporter-Shiny
+    - name: manual/Exporter-Shiny
       pod: Exporter::Shiny
-    - name: docs/Exporter-Almighty
+    - name: manual/Exporter-Almighty
       pod: Exporter::Almighty
 - name: metacpan
   title: CPAN

@@ -3,7 +3,7 @@
 		<meta charset="utf-8" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<title>
-			Exporter-Tiny — Exporter::Tiny
+			Exporter-Tiny — Exporter::Shiny
 		</title>
 		<link href="/assets/styles/main.css" rel="stylesheet" />
 		<link href="//unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css" rel="stylesheet" />
@@ -25,28 +25,28 @@
 								<a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Manual</a>
 								<ul class="dropdown-menu">
 									<li>
-										<a class="dropdown-item" href="/docs/quickstart.html" rel="related" target="_self">Quick Start</a>
+										<a class="dropdown-item" href="/manual/quickstart.html" rel="related" target="_self">Quick Start</a>
 									</li>
 									<li>
-										<a class="dropdown-item" href="/docs/exporting.html" rel="related" target="_self">Exporting</a>
+										<a class="dropdown-item" href="/manual/exporting.html" rel="related" target="_self">Exporting</a>
 									</li>
 									<li>
-										<a class="dropdown-item" href="/docs/importing.html" rel="related" target="_self">Importing</a>
+										<a class="dropdown-item" href="/manual/importing.html" rel="related" target="_self">Importing</a>
 									</li>
 									<li>
-										<a class="dropdown-item" href="/docs/etc.html" rel="related" target="_self">Etc</a>
+										<a class="dropdown-item" href="/manual/etc.html" rel="related" target="_self">Etc</a>
 									</li>
 									<li>
 										<hr class="dropdown-divider" />
 									</li>
 									<li>
-										<a class="dropdown-item active" href="/docs/Exporter-Tiny.html" rel="related" target="_self">Exporter::Tiny</a>
+										<a class="dropdown-item" href="/manual/Exporter-Tiny.html" rel="related" target="_self">Exporter::Tiny</a>
 									</li>
 									<li>
-										<a class="dropdown-item" href="/docs/Exporter-Shiny.html" rel="related" target="_self">Exporter::Shiny</a>
+										<a class="dropdown-item active" href="/manual/Exporter-Shiny.html" rel="related" target="_self">Exporter::Shiny</a>
 									</li>
 									<li>
-										<a class="dropdown-item" href="/docs/Exporter-Almighty.html" rel="related" target="_self">Exporter::Almighty</a>
+										<a class="dropdown-item" href="/manual/Exporter-Almighty.html" rel="related" target="_self">Exporter::Almighty</a>
 									</li>
 								</ul>
 							</li>
@@ -70,7 +70,7 @@
 		<main>
 			<div class="heading container py-3">
 				<h1 class="display-2">
-					Exporter::Tiny
+					Exporter::Shiny
 				</h1>
 			</div>
 			<article class="container">
@@ -81,93 +81,78 @@
 					</span>
 				</h1>
 				<p>
-					Exporter::Tiny - an exporter with the features of Sub::Exporter but only core dependencies
+					Exporter::Shiny - shortcut for Exporter::Tiny
 				</p>
 				<h1>
 					<span id="SYNOPSIS">
 						SYNOPSIS
 					</span>
 				</h1>
-				<pre><code>   package MyUtils;
-   use base "Exporter::Tiny";
-   our @EXPORT = qw(frobnicate);
-   sub frobnicate { ... }
-   1;
-
-   package MyScript;
-   use MyUtils "frobnicate" =&gt; { -as =&gt; "frob" };
-   print frob(42);
-   exit;</code></pre>
+				<pre><code>   use Exporter::Shiny qw( foo bar );</code></pre>
+				<p>
+					Is a shortcut for:
+				</p>
+				<pre><code>   use base "Exporter::Tiny";
+   push our(@EXPORT_OK), qw( foo bar );</code></pre>
+				<p>
+					For compatibility with
+					<a class="podlinkpod" href="https://metacpan.org/pod/Sub%3A%3AExporter">Sub::Exporter</a>
+					, the following longer syntax is also supported:
+				</p>
+				<pre><code>   use Exporter::Shiny -setup =&gt; {
+      exports =&gt; [qw( foo bar )],
+   };</code></pre>
 				<h1>
 					<span id="DESCRIPTION">
 						DESCRIPTION
 					</span>
 				</h1>
 				<p>
-					Exporter::Tiny supports many of Sub::Exporter's external-facing features including renaming imported functions with the
-					<code>
-						-as
-					</code>
-					,
-					<code>
-						-prefix
-					</code>
-					and
-					<code>
-						-suffix
-					</code>
-					options; explicit destinations with the
-					<code>
-						into
-					</code>
-					option; and alternative installers with the
-					<code>
-						installer
-					</code>
-					option. But it's written in only about 40% as many lines of code and with zero non-core dependencies.
+					This is a very small wrapper to simplify using
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny">Exporter::Tiny</a>
+					.
 				</p>
 				<p>
-					Its internal-facing interface is closer to Exporter.pm, with configuration done through the
-					<code>
-						@EXPORT
-					</code>
-					,
-					<code>
-						@EXPORT_OK
-					</code>
-					and
+					It does the following:
+				</p>
+				<ul>
+					<li>
+						Marks your package as loaded in
+						<code>
+							%INC
+						</code>
+						;
+					</li>
+					<li>
+						Pushes any function names in the import list onto your
+						<code>
+							@EXPORT_OK
+						</code>
+						; and
+					</li>
+					<li>
+						Pushes
+						<code>
+							"Exporter::Tiny"
+						</code>
+						onto your
+						<code>
+							@ISA
+						</code>
+						.
+					</li>
+				</ul>
+				<p>
+					It doesn't set up
 					<code>
 						%EXPORT_TAGS
 					</code>
-					package variables.
+					or
+					<code>
+						@EXPORT
+					</code>
+					, but there's nothing stopping you doing that yourself.
 				</p>
-				<p>
-					If you are trying to
-					<b>
-						write
-					</b>
-					a module that inherits from Exporter::Tiny, then look at:
-				</p>
-				<ul>
-					<li>
-						<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny%3A%3AManual%3A%3AQuickStart">Exporter::Tiny::Manual::QuickStart</a>
-					</li>
-					<li>
-						<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny%3A%3AManual%3A%3AExporting">Exporter::Tiny::Manual::Exporting</a>
-					</li>
-				</ul>
-				<p>
-					If you are trying to
-					<b>
-						use
-					</b>
-					a module that inherits from Exporter::Tiny, then look at:
-				</p>
-				<ul>
-					<li>
-						<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny%3A%3AManual%3A%3AImporting">Exporter::Tiny::Manual::Importing</a>
-					</li>
-				</ul>
 				<h1>
 					<span id="BUGS">
 						BUGS
@@ -179,31 +164,18 @@
 					.
 				</p>
 				<h1>
-					<span id="SUPPORT">
-						SUPPORT
-					</span>
-				</h1>
-				<p>
-					<b>
-						IRC:
-					</b>
-					support is available through in the
-					<i>
-						#moops
-					</i>
-					channel on
-					<a class="podlinkurl" href="http://www.irc.perl.org/channels.html">irc.perl.org</a>
-					.
-				</p>
-				<h1>
 					<span id="SEE_ALSO">
 						SEE ALSO
 					</span>
 				</h1>
 				<p>
-					Simplified interface to this module:
-					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3AShiny">Exporter::Shiny</a>
-					.
+					This module is just a wrapper around
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny">Exporter::Tiny</a>
+					, so take a look at
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny%3A%3AManual%3A%3AQuickStart">Exporter::Tiny::Manual::QuickStart</a>
+					and
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny%3A%3AManual%3A%3AExporting">Exporter::Tiny::Manual::Exporting</a>
+					for further information on what features are available.
 				</p>
 				<p>
 					Other interesting exporters:
@@ -226,7 +198,7 @@
 					</span>
 				</h1>
 				<p>
-					This software is copyright (c) 2013-2014, 2017, 2022 by Toby Inkster.
+					This software is copyright (c) 2014, 2017 by Toby Inkster.
 				</p>
 				<p>
 					This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.
