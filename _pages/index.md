@@ -1,5 +1,5 @@
 <div class="text-center my-5 pt-5 mx-auto w-lg-50">
-	<p class="lead">Exporter-Tiny is a Perl distribution including Exoprter::Tiny and Exporter::Shiny.</p>
+	<p class="lead">Exporter-Tiny is a Perl distribution including Exporter::Tiny and Exporter::Shiny.</p>
 	<p class="lead">An exporter is a module which implements an <code>import</code> method which allows other modules to import functions and variables into its namespace.</p>
 	<p class="lead">Exporters are essential for modular, functional programming in Perl.</p>
 </div>
