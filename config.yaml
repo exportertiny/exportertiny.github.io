@@ -1,6 +1,6 @@
 name: Exporter-Tiny
 abstract: "an exporter with the features of Sub::Exporter but only core dependencies"
-abstract_html: 'an exporter with the features of <span class="text-dark">Sub::Exporter</span><br> but only core dependencies'
+abstract_html: 'an exporter with the features of <span class="text-light">Sub::Exporter</span><br> but only core dependencies'
 github: https://github.com/tobyink/p5-exporter-tiny
 issues: https://github.com/tobyink/p5-exporter-tiny/issues
 copyright: "Copyright © 2023 Toby Inkster. All rights reserved."
