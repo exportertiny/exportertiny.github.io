@@ -6,7 +6,7 @@ issues: https://github.com/tobyink/p5-exporter-tiny/issues
 copyright: "Copyright © 2023 Toby Inkster. All rights reserved."
 theme:
   light: "#cefaeb"
-  dark: "#000"
+  dark: "#25205c"
   primary: "#264a5a"
   secondary: "#8f4158"
   info: "#b3a7ae"
