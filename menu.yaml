@@ -1,0 +1,33 @@
+- name: installation
+  title: Installation
+  source: _pages/installation.md
+- name: docs
+  title: Manual
+  children:
+    - name: docs/quickstart
+      title: Quick Start
+      pod: Exporter::Tiny::Manual::QuickStart
+    - name: docs/exporting
+      title: Exporting
+      pod: Exporter::Tiny::Manual::Exporting
+    - name: docs/importing
+      title: Importing
+      pod: Exporter::Tiny::Manual::Importing
+    - name: docs/etc
+      title: Etc
+      pod: Exporter::Tiny::Manual::Etc
+    - divider:
+    - name: docs/Exporter-Tiny
+      pod: Exporter::Tiny
+    - name: docs/Exporter-Shiny
+      pod: Exporter::Shiny
+    - name: docs/Exporter-Almighty
+      pod: Exporter::Almighty
+- name: metacpan
+  title: CPAN
+  icon: '<i class="fa-solid fa-circle-dot"></i>'
+  target: '_blank'
+- name: github
+  title: Github
+  icon: '<i class="fa-brands fa-github"></i>'
+  target: '_blank'
