@@ -1,0 +1,339 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<title>
+			Exporter-Tiny — Etc
+		</title>
+		<link href="/assets/styles/main.css" rel="stylesheet" />
+		<link href="//unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css" rel="stylesheet" />
+	</head>
+	<body class="page from-pod">
+		<header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<a class="navbar-brand" href="/">Exporter-Tiny</a>
+					<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link" href="/installation.html" rel="related" target="_self">Installation</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Manual</a>
+								<ul class="dropdown-menu">
+									<li>
+										<a class="dropdown-item" href="/docs/quickstart.html" rel="related" target="_self">Quick Start</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/exporting.html" rel="related" target="_self">Exporting</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/importing.html" rel="related" target="_self">Importing</a>
+									</li>
+									<li>
+										<a class="dropdown-item active" href="/docs/etc.html" rel="related" target="_self">Etc</a>
+									</li>
+									<li>
+										<hr class="dropdown-divider" />
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/Exporter-Tiny.html" rel="related" target="_self">Exporter::Tiny</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/Exporter-Shiny.html" rel="related" target="_self">Exporter::Shiny</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/Exporter-Almighty.html" rel="related" target="_self">Exporter::Almighty</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://metacpan.org/dist/Exporter-Tiny" rel="related" target="_blank">
+									<i class="fa-solid fa-circle-dot"></i>
+									CPAN
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://github.com/tobyink/p5-exporter-tiny" rel="related" target="_blank">
+									<i class="fa-brands fa-github"></i>
+									Github
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main>
+			<div class="heading container py-3">
+				<h1 class="display-2">
+					Etc
+				</h1>
+			</div>
+			<article class="container">
+				<span id="___top"></span>
+				<h1>
+					<span id="NAME">
+						NAME
+					</span>
+				</h1>
+				<p>
+					Exporter::Tiny::Manual::Etc - odds and ends
+				</p>
+				<h1>
+					<span id="DESCRIPTION">
+						DESCRIPTION
+					</span>
+				</h1>
+				<h2>
+					<span id="Utility_Functions">
+						Utility Functions
+					</span>
+				</h2>
+				<p>
+					Exporter::Tiny is itself an exporter!
+				</p>
+				<p>
+					These functions are really for internal use, but can be exported if you need them:
+				</p>
+				<dl>
+					<dt>
+						<span id="mkopt(\@array)">
+							<code>
+								mkopt(\@array)
+							</code>
+						</span>
+					</dt>
+					<dd>
+						<p>
+							Similar to
+							<code>
+								mkopt
+							</code>
+							from
+							<a class="podlinkpod" href="https://metacpan.org/pod/Data%3A%3AOptList">Data::OptList</a>
+							. It doesn't support all the fancy options that Data::OptList does (
+							<code>
+								moniker
+							</code>
+							,
+							<code>
+								require_unique
+							</code>
+							,
+							<code>
+								must_be
+							</code>
+							and
+							<code>
+								name_test
+							</code>
+							) but runs about 50% faster.
+						</p>
+					</dd>
+					<dt>
+						<span id="mkopt_hash(\@array)">
+							<code>
+								mkopt_hash(\@array)
+							</code>
+						</span>
+					</dt>
+					<dd>
+						<p>
+							Similar to
+							<code>
+								mkopt_hash
+							</code>
+							from
+							<a class="podlinkpod" href="https://metacpan.org/pod/Data%3A%3AOptList">Data::OptList</a>
+							. See also
+							<code>
+								mkopt
+							</code>
+							.
+						</p>
+					</dd>
+				</dl>
+				<h2>
+					<span id="History">
+						History
+					</span>
+				</h2>
+				<p>
+					<a class="podlinkpod" href="https://metacpan.org/pod/Type%3A%3ALibrary">Type::Library</a>
+					had a bunch of custom exporting code which poked coderefs into its caller's stash. It needed this to be something more powerful than most exporters so that it could switch between exporting Moose, Mouse and Moo-compatible objects on request.
+					<a class="podlinkpod" href="https://metacpan.org/pod/Sub%3A%3AExporter">Sub::Exporter</a>
+					would have been capable, but had too many dependencies for the Type::Tiny project.
+				</p>
+				<p>
+					Meanwhile
+					<a class="podlinkpod" href="https://metacpan.org/pod/Type%3A%3AUtils">Type::Utils</a>
+					,
+					<a class="podlinkpod" href="https://metacpan.org/pod/Types%3A%3ATypeTiny">Types::TypeTiny</a>
+					and
+					<a class="podlinkpod" href="https://metacpan.org/pod/Test%3A%3ATypeTiny">Test::TypeTiny</a>
+					each used the venerable
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter">Exporter.pm</a>
+					. However, this meant they were unable to use the features like
+					<a class="podlinkpod" href="https://metacpan.org/pod/Sub%3A%3AExporter">Sub::Exporter</a>
+					-style function renaming which I'd built into Type::Library:
+				</p>
+				<pre><code>   ## import "Str" but rename it to "String".
+   use Types::Standard "Str" =&gt; { -as =&gt; "String" };</code></pre>
+				<p>
+					And so I decided to factor out code that could be shared by all Type-Tiny's exporters into a single place: Exporter::TypeTiny.
+				</p>
+				<p>
+					As of version 0.026, Exporter::TypeTiny was also made available as
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny">Exporter::Tiny</a>
+					, distributed independently on CPAN. CHOCOLATEBOY had convinced me that it was mature enough to live a life of its own.
+				</p>
+				<p>
+					As of version 0.030, Type-Tiny depends on Exporter::Tiny and Exporter::TypeTiny is being phased out.
+				</p>
+				<h2>
+					<span id="Obligatory_Exporter_Comparison">
+						Obligatory Exporter Comparison
+					</span>
+				</h2>
+				<p>
+					Exporting is unlikely to be your application's performance bottleneck, but nonetheless here are some comparisons.
+				</p>
+				<p>
+					<b>
+						Comparative sizes according to
+						<a class="podlinkpod" href="https://metacpan.org/pod/Devel%3A%3ASizeMe">Devel::SizeMe</a>
+						:
+					</b>
+				</p>
+				<pre><code>   Exporter                     217.1Kb
+   Sub::Exporter::Progressive   263.2Kb
+   Exporter::Tiny               267.7Kb
+   Exporter + Exporter::Heavy   281.5Kb
+   Exporter::Renaming           406.2Kb
+   Sub::Exporter                701.0Kb</code></pre>
+				<p>
+					<b>
+						Performance exporting a single sub:
+					</b>
+				</p>
+				<pre><code>              Rate     SubExp    ExpTiny SubExpProg      ExpPM
+SubExp      2489/s         --       -56%       -85%       -88%
+ExpTiny     5635/s       126%         --       -67%       -72%
+SubExpProg 16905/s       579%       200%         --       -16%
+ExpPM      20097/s       707%       257%        19%         --</code></pre>
+				<p>
+					(Exporter::Renaming globally changes the behaviour of Exporter.pm, so could not be included in the same benchmarks.)
+				</p>
+				<p>
+					<b>
+						(Non-Core) Dependencies:
+					</b>
+				</p>
+				<pre><code>   Exporter                    -1
+   Exporter::Renaming           0
+   Exporter::Tiny               0
+   Sub::Exporter::Progressive   0
+   Sub::Exporter                3</code></pre>
+				<p>
+					<b>
+						Features:
+					</b>
+				</p>
+				<pre><code>                                      ExpPM   ExpTiny SubExp  SubExpProg
+ Can export code symbols............. Yes     Yes     Yes     Yes      
+ Can export non-code symbols......... Yes     Yes                      
+ Groups/tags......................... Yes     Yes     Yes     Yes      
+ Export by regexp.................... Yes     Yes                      
+ Bang prefix......................... Yes     Yes                      
+ Allows renaming of subs.............         Yes     Yes     Maybe    
+ Install code into scalar refs.......         Yes     Yes     Maybe    
+ Can be passed an "into" parameter...         Yes     Yes     Maybe    
+ Can be passed an "installer" sub....         Yes     Yes     Maybe    
+ Config avoids package variables.....                 Yes              
+ Supports generators.................         Yes     Yes              
+ Sane API for generators.............         Yes     Yes              
+ Unimport............................         Yes                      </code></pre>
+				<p>
+					(Certain Sub::Exporter::Progressive features are only available if Sub::Exporter is installed.)
+				</p>
+				<h1>
+					<span id="SEE_ALSO">
+						SEE ALSO
+					</span>
+				</h1>
+				<p>
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3AShiny">Exporter::Shiny</a>
+					,
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny">Exporter::Tiny</a>
+					.
+				</p>
+				<h1>
+					<span id="AUTHOR">
+						AUTHOR
+					</span>
+				</h1>
+				<p>
+					Toby Inkster &lt;tobyink@cpan.org&gt;.
+				</p>
+				<h1>
+					<span id="COPYRIGHT_AND_LICENCE">
+						COPYRIGHT AND LICENCE
+					</span>
+				</h1>
+				<p>
+					This software is copyright (c) 2013-2014, 2017 by Toby Inkster.
+				</p>
+				<p>
+					This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.
+				</p>
+				<h1>
+					<span id="DISCLAIMER_OF_WARRANTIES">
+						DISCLAIMER OF WARRANTIES
+					</span>
+				</h1>
+				<p>
+					THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+				</p>
+			</article>
+		</main>
+		<div style="height: 150px; overflow: hidden;">
+			<svg preserveaspectratio="none" style="height: 100%; width: 100%;" viewbox="0 0 500 150">
+				<path d="M0.00,49.98 C138.82,121.67 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));"></path>
+			</svg>
+		</div>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-lg-12">
+						<h2>
+							Contributing
+						</h2>
+						<p>
+							Exporter-Tiny is an open source project
+							<a href="https://github.com/tobyink/p5-exporter-tiny">hosted on Github</a>
+							— open an issue if you have an idea or find a bug.
+						</p>
+						<p>
+							<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/tobyink/p5-exporter-tiny?style=social" />
+						</p>
+					</div>
+					<div class="col-12 text-center pt-3">
+						<p>
+							Copyright © 2023 Toby Inkster. All rights reserved.
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script src="/assets/scripts/bootstrap.bundle.min.js"></script>
+		<script crossorigin="anonymous" src="//kit.fontawesome.com/6d700b1a29.js"></script>
+		<script src="//unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+		<script>/* <![CDATA[ */
+			/* ]]> *//* <![CDATA[ */hljs.highlightAll();
+		/* ]]> */</script>
+	</body>
+</html>

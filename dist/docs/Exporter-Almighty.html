@@ -1,0 +1,696 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<title>
+			Exporter-Tiny — Exporter::Almighty
+		</title>
+		<link href="/assets/styles/main.css" rel="stylesheet" />
+		<link href="//unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css" rel="stylesheet" />
+	</head>
+	<body class="page from-pod">
+		<header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<a class="navbar-brand" href="/">Exporter-Tiny</a>
+					<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link" href="/installation.html" rel="related" target="_self">Installation</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Manual</a>
+								<ul class="dropdown-menu">
+									<li>
+										<a class="dropdown-item" href="/docs/quickstart.html" rel="related" target="_self">Quick Start</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/exporting.html" rel="related" target="_self">Exporting</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/importing.html" rel="related" target="_self">Importing</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/etc.html" rel="related" target="_self">Etc</a>
+									</li>
+									<li>
+										<hr class="dropdown-divider" />
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/Exporter-Tiny.html" rel="related" target="_self">Exporter::Tiny</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/Exporter-Shiny.html" rel="related" target="_self">Exporter::Shiny</a>
+									</li>
+									<li>
+										<a class="dropdown-item active" href="/docs/Exporter-Almighty.html" rel="related" target="_self">Exporter::Almighty</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://metacpan.org/dist/Exporter-Tiny" rel="related" target="_blank">
+									<i class="fa-solid fa-circle-dot"></i>
+									CPAN
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://github.com/tobyink/p5-exporter-tiny" rel="related" target="_blank">
+									<i class="fa-brands fa-github"></i>
+									Github
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main>
+			<div class="heading container py-3">
+				<h1 class="display-2">
+					Exporter::Almighty
+				</h1>
+			</div>
+			<article class="container">
+				<span id="___top"></span>
+				<h1>
+					<span id="NAME">
+						NAME
+					</span>
+				</h1>
+				<p>
+					Exporter::Almighty - combining Exporter::Tiny with some other stuff for added power
+				</p>
+				<h1>
+					<span id="SYNOPSIS">
+						SYNOPSIS
+					</span>
+				</h1>
+				<pre><code>  package Your::Package;
+  
+  use v5.12;
+  use Exporter::Almighty -setup =&gt; {
+    tag =&gt; {
+      foo =&gt; [ 'foo1', 'foo2' ],
+      bar =&gt; [ 'bar1' ],
+    },
+    const =&gt; {
+      colours =&gt; { RED =&gt; 'red', BLUE =&gt; 'blue', GREEN =&gt; 'green' },
+    },
+    enum =&gt; {
+      Status =&gt; [ 'dead', 'alive' ],
+    },
+    also =&gt; [
+      'strict',
+      'Scalar::Util' =&gt; [ 'refaddr' ],
+      'warnings',
+    ],
+  };
+  
+  sub foo1 { ... }
+  sub foo2 { ... }
+  sub bar1 { ... }
+  
+  1;</code></pre>
+				<h1>
+					<span id="DESCRIPTION">
+						DESCRIPTION
+					</span>
+				</h1>
+				<p>
+					This module aims to make building exporters easier. It is based on
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny">Exporter::Tiny</a>
+					, but helps you avoid manually setting
+					<code>
+						@EXPORT_OK
+					</code>
+					,
+					<code>
+						%EXPORT_TAGS
+					</code>
+					, etc.
+				</p>
+				<p>
+					Exporter::Almighty supports lexical exports, even on Perl versions as old as 5.12.
+				</p>
+				<p>
+					Exporter::Almighty indeed requires Perl 5.12, so it's strongly recommended you add
+					<code>
+						use v5.12
+					</code>
+					(or higher) before
+					<code>
+						use Exporter::Almighty
+					</code>
+					so that your package can benefit from features which don't exist in legacy versions of Perl.
+				</p>
+				<h2>
+					<span id="Setup_Options">
+						Setup Options
+					</span>
+				</h2>
+				<p>
+					Exporter::Almighty's own setup happens through its import. A setup hashref is passed as per the example in the
+					<a class="podlinkpod" href="#SYNOPSIS">"SYNOPSIS"</a>
+					. Each key in this hash is a setup option.
+				</p>
+				<p>
+					The names are all short, singular names, in case you forget whether to use
+					<code>
+						tag
+					</code>
+					or
+					<code>
+						tags
+					</code>
+					!
+				</p>
+				<h3>
+					<span id="tag">
+						<code>
+							tag
+						</code>
+					</span>
+				</h3>
+				<p>
+					This is a hashref where the keys are tag names and the values are arrayrefs of function names.
+				</p>
+				<pre><code>  use Exporter::Almighty -setup =&gt; {
+    tag =&gt; {
+      foo =&gt; [ 'foo1', 'foo2' ],
+      bar =&gt; [ 'bar1' ],
+    }
+  };</code></pre>
+				<p>
+					A user of the package defined in the
+					<a class="podlinkpod" href="#SYNOPSIS">"SYNOPSIS"</a>
+					could import:
+				</p>
+				<pre><code>  use Your::Package qw( foo1 foo2 bar1 );   # import functions by name
+  use Your::Package qw( :foo );             # import 'foo1' and 'foo2'
+  use Your::Package qw( -foo );             # same!</code></pre>
+				<p>
+					If you have a tag called
+					<code>
+						default
+					</code>
+					, that is special. It will be automatically exported if your caller doesn't provide an explicit list of things they want to import.
+				</p>
+				<p>
+					The following other tags also have special meanings:
+					<code>
+						constants
+					</code>
+					,
+					<code>
+						types
+					</code>
+					,
+					<code>
+						assert
+					</code>
+					,
+					<code>
+						is
+					</code>
+					,
+					<code>
+						to
+					</code>
+					, and
+					<code>
+						all
+					</code>
+					.
+				</p>
+				<p>
+					By convention, tags names should be snake_case.
+				</p>
+				<h3>
+					<span id="const">
+						<code>
+							const
+						</code>
+					</span>
+				</h3>
+				<p>
+					Similar to
+					<code>
+						tag
+					</code>
+					this is a hashref where keys are tag names, but instead of the values being arrayrefs of function names, they are hashrefs which define constants.
+				</p>
+				<pre><code>  use Exporter::Almighty -setup =&gt; {
+    const =&gt; {
+      colours =&gt; { RED =&gt; 'red', BLUE =&gt; 'blue', GREEN =&gt; 'green' },
+    },
+  };</code></pre>
+				<p>
+					A user of the package defined in the
+					<a class="podlinkpod" href="#SYNOPSIS">"SYNOPSIS"</a>
+					could import:
+				</p>
+				<pre><code>  use Your::Package qw( RED GREEN BLUE );   # import constants by name
+  use Your::Package qw( :colours );         # import 'colours' constants
+  use Your::Package qw( :constants );       # import ALL constants</code></pre>
+				<p>
+					By convention, the tag names should be snake_case, but constant names should be SHOUTING_SNAKE_CASE.
+				</p>
+				<p>
+					For every constant like
+					<code>
+						RED
+					</code>
+					, a readonly variable
+					<code>
+						$RED
+					</code>
+					is also created, making it easier to interpolate the constant into a string. These are not exported by default.
+				</p>
+				<pre><code>  use Your::Package qw( $RED $GREEN $BLUE );  # import ro vars by name
+  use Your::Package qw( :ro_vars );           # import ALL ro vars</code></pre>
+				<h3>
+					<span id="type">
+						<code>
+							type
+						</code>
+					</span>
+				</h3>
+				<p>
+					This is an arrayref of type libraries. Each library listed will be
+					<i>
+						imported
+					</i>
+					into your exporter, and then the types in it will be
+					<i>
+						re-exported
+					</i>
+					to the people who use your package. Each type library can optionally be followed by an arrayref of type names if you don't want to just import all types.
+				</p>
+				<pre><code>  package Your::Package;
+  
+  use Exporter::Almighty -setup =&gt; {
+    tags =&gt; {
+      foo =&gt; [ 'foo1', 'foo2' ],
+    },
+    type =&gt; [
+      'Types::Standard',
+      'Types::Common::String'  =&gt; [ 'NonEmptyStr' ],
+      'Types::Common::Numeric' =&gt; [ 'PositiveInt', 'PositiveOrZeroInt' ],
+    ],
+  };
+  
+  sub foo1 { ... }
+  sub foo2 { ... }
+  
+  ...;
+  
+  package main;
+  
+  use Your::Package qw( -foo is_NonEmptyStr );
+  
+  my $got = foo1();
+  if ( is_NonEmptyStr( $got ) ) {
+    foo2();
+  }</code></pre>
+				<p>
+					If you re-export types like this, then your module will be "promoted" to being a subclass of
+					<a class="podlinkpod" href="https://metacpan.org/pod/Type%3A%3ALibrary">Type::Library</a>
+					instead of
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny">Exporter::Tiny</a>
+					. (Type::Library is itself a subclass of Exporter::Tiny, so you don't miss out on any features.)
+				</p>
+				<h3>
+					<span id="enum">
+						<code>
+							enum
+						</code>
+					</span>
+				</h3>
+				<p>
+					This is a hashref where keys are enumerated type names, and the values are arrayrefs of strings.
+				</p>
+				<pre><code>  use Exporter::Almighty -setup =&gt; {
+    enum =&gt; {
+      Status =&gt; [ 'dead', 'alive' ],
+    },
+  };</code></pre>
+				<p>
+					A user of the package defined in the
+					<a class="podlinkpod" href="#SYNOPSIS">"SYNOPSIS"</a>
+					could import:
+				</p>
+				<pre><code>  use Your::Package qw(
+    Status
+    is_Status
+    assert_Status
+    to_Status
+    STATUS_ALIVE
+    STATUS_DEAD
+  );
+  use Your::Package qw( +Status );  # shortcut for the above</code></pre>
+				<p>
+					The
+					<code>
+						Status
+					</code>
+					function exported by the above will return a
+					<a class="podlinkpod" href="https://metacpan.org/pod/Type%3A%3ATiny%3A%3AEnum">Type::Tiny::Enum</a>
+					object.
+				</p>
+				<p>
+					The
+					<code>
+						:types
+					</code>
+					,
+					<code>
+						:is
+					</code>
+					,
+					<code>
+						:assert
+					</code>
+					,
+					<code>
+						:to
+					</code>
+					, and
+					<code>
+						:constants
+					</code>
+					tags will also automatically include the relevent exports.
+				</p>
+				<p>
+					If you export any enums then your module will be "promoted" from being an
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny">Exporter::Tiny</a>
+					to being a
+					<a class="podlinkpod" href="https://metacpan.org/pod/Type%3A%3ALibrary">Type::Library</a>
+					.
+				</p>
+				<p>
+					By convention, enum types should be UpperCamelCase.
+				</p>
+				<h3>
+					<span id="class">
+						<code>
+							class
+						</code>
+					</span>
+				</h3>
+				<p>
+					This is an arrayref of class names.
+				</p>
+				<pre><code>  use Exporter::Almighty -setup =&gt; {
+    class =&gt; [
+      'HTTP::Tiny',
+      'LWP::UserAgent',
+    ],
+  };</code></pre>
+				<p>
+					People can import:
+				</p>
+				<pre><code>  use Your::Package qw( +HTTPTiny +LWPUserAgent );
+  
+  unless ( is_HTTPTiny($x) or is_LWPUserAgent($x) ) {
+    $x = HTTPTiny-&gt;new();
+  }</code></pre>
+				<p>
+					These create
+					<a class="podlinkpod" href="https://metacpan.org/pod/Type%3A%3ATiny%3A%3AClass">Type::Tiny::Class</a>
+					type constraints similar to how
+					<code>
+						enum
+					</code>
+					works. It will similarly promote your exporter to a
+					<a class="podlinkpod" href="https://metacpan.org/pod/Type%3A%3ALibrary">Type::Library</a>
+					.
+				</p>
+				<p>
+					Notice that the
+					<code>
+						new
+					</code>
+					method will be proxied through to the underlying class, so these can also work as useful aliases for long class names.
+				</p>
+				<pre><code>  use Exporter::Almighty -setup =&gt; {
+    class =&gt; [
+      'ShortName' =&gt; { class =&gt; 'Very::Long::Class::Name' },
+      'TinyName'  =&gt; { class =&gt; 'An::Even::Longer::Class::Name' },
+    ],
+  };</code></pre>
+				<p>
+					Exporter::Almighty will attempt to pre-emptively load modules mentioned here, so you don't need to do it yourself. However if the modules don't exist, it won't complain.
+				</p>
+				<h3>
+					<span id="role">
+						<code>
+							role
+						</code>
+					</span>
+				</h3>
+				<p>
+					This works the same as
+					<code>
+						class
+					</code>
+					, except for roles.
+				</p>
+				<h3>
+					<span id="duck">
+						<code>
+							duck
+						</code>
+					</span>
+				</h3>
+				<p>
+					This is a hashref where keys are "duck type" type names, and the values are arrayrefs of method names.
+				</p>
+				<pre><code>  use Exporter::Almighty -setup =&gt; {
+    duck =&gt; [
+      'UserAgent' =&gt; [ 'head', 'get', 'post' ],
+    ],
+  };</code></pre>
+				<p>
+					These create
+					<a class="podlinkpod" href="https://metacpan.org/pod/Type%3A%3ATiny%3A%3ADuck">Type::Tiny::Duck</a>
+					type constraints similar to how
+					<code>
+						enum
+					</code>
+					works. It will similarly promote your exporter to be a
+					<a class="podlinkpod" href="https://metacpan.org/pod/Type%3A%3ALibrary">Type::Library</a>
+					.
+				</p>
+				<h3>
+					<span id="also">
+						<code>
+							also
+						</code>
+					</span>
+				</h3>
+				<p>
+					A list of other packages to also export to your caller. Each package name can optionally be followed by an arrayref of import arguments.
+				</p>
+				<pre><code>  use Exporter::Almighty -setup =&gt; {
+    also =&gt; [
+      'strict',
+      'Scalar::Util' =&gt; [ 'refaddr' ],
+      'warnings',
+    ],
+  };</code></pre>
+				<p>
+					Your caller isn't given any options allowing them to opt in or out of this, so it is recommended that this be used sparingly.
+					<a class="podlinkpod" href="https://metacpan.org/pod/strict">strict</a>
+					,
+					<a class="podlinkpod" href="https://metacpan.org/pod/warnings">warnings</a>
+					,
+					<a class="podlinkpod" href="https://metacpan.org/pod/feature">feature</a>
+					,
+					<a class="podlinkpod" href="https://metacpan.org/pod/experimental">experimental</a>
+					, and
+					<a class="podlinkpod" href="https://metacpan.org/pod/namespace%3A%3Aautoclean">namespace::autoclean</a>
+					are good packages to consider listing here. Packages that export named functions are less good.
+				</p>
+				<h2>
+					<span id="API">
+						API
+					</span>
+				</h2>
+				<p>
+					Instead of:
+				</p>
+				<pre><code>  package Your::Package;
+  use Exporter::Almighty -setup =&gt; \%setup;</code></pre>
+				<p>
+					It is possible to do this at run-time:
+				</p>
+				<pre><code>  Exporter::Almighty-&gt;setup_for( 'Your::Package', %setup );</code></pre>
+				<p>
+					This may allow slightly more flexibility in some cases.
+				</p>
+				<p>
+					Exporter::Almighty is also designed to be easily subclassable.
+				</p>
+				<h2>
+					<span id="Exporter::Tiny_features_you_get_for_free">
+						Exporter::Tiny features you get for free
+					</span>
+				</h2>
+				<h3>
+					<span id="Features_for_you">
+						Features for you
+					</span>
+				</h3>
+				<p>
+					Exporter::Almighty will import
+					<a class="podlinkpod" href="https://metacpan.org/pod/strict">strict</a>
+					and
+					<a class="podlinkpod" href="https://metacpan.org/pod/warnings">warnings</a>
+					into your package.
+				</p>
+				<p>
+					You can export package variables, though it's rarely a good idea:
+				</p>
+				<pre><code>  package Your::Package;
+  
+  use Exporter::Almighty -setup =&gt; {
+    tag =&gt; { default =&gt; [ 'xxx', '$YYY' ] },
+  };
+  
+  our $YYY = 42;</code></pre>
+				<p>
+					You can use generators:
+				</p>
+				<pre><code>  package Your::Package;
+  
+  use Exporter::Almighty -setup =&gt; {
+    tag =&gt; { default =&gt; [ 'xxx' ] },
+  };
+  
+  sub _generate_xxx {
+    my ( $me, $name, $vals, $opts ) = @_;
+    my $caller = $opts-&gt;{into};
+    
+    # Return the sub which will be installed into caller as 'xxx'.
+    return sub {
+    };
+  }
+  
+  ...;
+  
+  package main;
+  use Your::Package 'xxx' =&gt; \%vals;
+  
+  xxx( ... );</code></pre>
+				<h3>
+					<span id="Features_for_your_caller">
+						Features for your caller
+					</span>
+				</h3>
+				<p>
+					Your caller can do lexical imports:
+				</p>
+				<pre><code>  use Your::Package -lexical, qw( ... );</code></pre>
+				<p>
+					Your caller can rename imported functions:
+				</p>
+				<pre><code>  use Your::Package foo =&gt; { -as =&gt; 'foofoo' };</code></pre>
+				<p>
+					And everything else described in
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny%3A%3AManual%3A%3AImporting">Exporter::Tiny::Manual::Importing</a>
+					.
+				</p>
+				<h1>
+					<span id="BUGS">
+						BUGS
+					</span>
+				</h1>
+				<p>
+					Please report any bugs to
+					<a class="podlinkurl" href="https://github.com/tobyink/p5-exporter-almighty/issues">https://github.com/tobyink/p5-exporter-almighty/issues</a>
+					.
+				</p>
+				<h1>
+					<span id="SEE_ALSO">
+						SEE ALSO
+					</span>
+				</h1>
+				<p>
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny">Exporter::Tiny</a>
+					,
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3AShiny">Exporter::Shiny</a>
+					.
+				</p>
+				<p>
+					<a class="podlinkpod" href="https://metacpan.org/pod/CXC%3A%3AExporter%3A%3AUtil">CXC::Exporter::Util</a>
+					was an inspiration for this module and the features overlap a bit.
+				</p>
+				<h1>
+					<span id="AUTHOR">
+						AUTHOR
+					</span>
+				</h1>
+				<p>
+					Toby Inkster &lt;tobyink@cpan.org&gt;.
+				</p>
+				<h1>
+					<span id="COPYRIGHT_AND_LICENCE">
+						COPYRIGHT AND LICENCE
+					</span>
+				</h1>
+				<p>
+					This software is copyright (c) 2023 by Toby Inkster.
+				</p>
+				<p>
+					This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.
+				</p>
+				<h1>
+					<span id="DISCLAIMER_OF_WARRANTIES">
+						DISCLAIMER OF WARRANTIES
+					</span>
+				</h1>
+				<p>
+					THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+				</p>
+			</article>
+		</main>
+		<div style="height: 150px; overflow: hidden;">
+			<svg preserveaspectratio="none" style="height: 100%; width: 100%;" viewbox="0 0 500 150">
+				<path d="M0.00,49.98 C138.82,121.67 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));"></path>
+			</svg>
+		</div>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-lg-12">
+						<h2>
+							Contributing
+						</h2>
+						<p>
+							Exporter-Tiny is an open source project
+							<a href="https://github.com/tobyink/p5-exporter-tiny">hosted on Github</a>
+							— open an issue if you have an idea or find a bug.
+						</p>
+						<p>
+							<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/tobyink/p5-exporter-tiny?style=social" />
+						</p>
+					</div>
+					<div class="col-12 text-center pt-3">
+						<p>
+							Copyright © 2023 Toby Inkster. All rights reserved.
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script src="/assets/scripts/bootstrap.bundle.min.js"></script>
+		<script crossorigin="anonymous" src="//kit.fontawesome.com/6d700b1a29.js"></script>
+		<script src="//unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+		<script>/* <![CDATA[ */
+			/* ]]> *//* <![CDATA[ */hljs.highlightAll();
+		/* ]]> */</script>
+	</body>
+</html>

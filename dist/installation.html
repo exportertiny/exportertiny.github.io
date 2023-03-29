@@ -1,0 +1,176 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<title>
+			Exporter-Tiny — Installation
+		</title>
+		<link href="/assets/styles/main.css" rel="stylesheet" />
+		<link href="//unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css" rel="stylesheet" />
+	</head>
+	<body class="page from-markdown">
+		<header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<a class="navbar-brand" href="/">Exporter-Tiny</a>
+					<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link active" href="/installation.html" rel="related" target="_self">Installation</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Manual</a>
+								<ul class="dropdown-menu">
+									<li>
+										<a class="dropdown-item" href="/docs/quickstart.html" rel="related" target="_self">Quick Start</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/exporting.html" rel="related" target="_self">Exporting</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/importing.html" rel="related" target="_self">Importing</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/etc.html" rel="related" target="_self">Etc</a>
+									</li>
+									<li>
+										<hr class="dropdown-divider" />
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/Exporter-Tiny.html" rel="related" target="_self">Exporter::Tiny</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/Exporter-Shiny.html" rel="related" target="_self">Exporter::Shiny</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/Exporter-Almighty.html" rel="related" target="_self">Exporter::Almighty</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://metacpan.org/dist/Exporter-Tiny" rel="related" target="_blank">
+									<i class="fa-solid fa-circle-dot"></i>
+									CPAN
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://github.com/tobyink/p5-exporter-tiny" rel="related" target="_blank">
+									<i class="fa-brands fa-github"></i>
+									Github
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main>
+			<div class="heading container py-3">
+				<h1 class="display-2">
+					Installation
+				</h1>
+			</div>
+			<article class="has-sections has-section-count-3">
+				<section>
+					<div class="container">
+						<p>
+							Installing Exporter-Tiny should be straightforward.
+						</p>
+						<h1>
+							Installation with cpanminus
+						</h1>
+						<p>
+							If you have cpanm, you only need one line:
+						</p>
+						<pre><code>cpanm Exporter::Tiny
+</code></pre>
+						<p>
+							If you are installing into a system-wide directory, you may need to pass the "-S" flag to cpanm, which uses sudo to install the module:
+						</p>
+						<pre><code>cpanm -S Exporter::Tiny
+</code></pre>
+					</div>
+				</section>
+				<section>
+					<div class="container">
+						<h1>
+							Installation with the CPAN shell
+						</h1>
+						<p>
+							Alternatively, if your CPAN shell is set up, you should just be able to do:
+						</p>
+						<pre><code>cpan Exporter::Tiny
+</code></pre>
+					</div>
+				</section>
+				<section>
+					<div class="container">
+						<h1>
+							Manual installation
+						</h1>
+						<p>
+							As a last resort, you can manually install it. Download the tarball and unpack it.
+						</p>
+						<p>
+							Consult the file META.json for a list of pre-requisites. Install these first.
+						</p>
+						<p>
+							To build Exporter-Tiny:
+						</p>
+						<pre><code>perl Makefile.PL
+make &amp;&amp; make test
+</code></pre>
+						<p>
+							Then install it:
+						</p>
+						<pre><code>make install
+</code></pre>
+						<p>
+							If you are installing into a system-wide directory, you may need to run:
+						</p>
+						<pre><code>sudo make install
+</code></pre>
+					</div>
+				</section>
+			</article>
+		</main>
+		<div style="height: 150px; overflow: hidden;">
+			<svg preserveaspectratio="none" style="height: 100%; width: 100%;" viewbox="0 0 500 150">
+				<path d="M0.00,49.98 C138.82,121.67 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));"></path>
+			</svg>
+		</div>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-lg-12">
+						<h2>
+							Contributing
+						</h2>
+						<p>
+							Exporter-Tiny is an open source project
+							<a href="https://github.com/tobyink/p5-exporter-tiny">hosted on Github</a>
+							— open an issue if you have an idea or find a bug.
+						</p>
+						<p>
+							<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/tobyink/p5-exporter-tiny?style=social" />
+						</p>
+					</div>
+					<div class="col-12 text-center pt-3">
+						<p>
+							Copyright © 2023 Toby Inkster. All rights reserved.
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script src="/assets/scripts/bootstrap.bundle.min.js"></script>
+		<script crossorigin="anonymous" src="//kit.fontawesome.com/6d700b1a29.js"></script>
+		<script src="//unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+		<script>/* <![CDATA[ */
+			/* ]]> *//* <![CDATA[ */hljs.highlightAll();
+		/* ]]> */</script>
+	</body>
+</html>

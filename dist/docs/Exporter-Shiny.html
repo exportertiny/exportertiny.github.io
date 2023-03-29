@@ -1,0 +1,252 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<title>
+			Exporter-Tiny — Exporter::Shiny
+		</title>
+		<link href="/assets/styles/main.css" rel="stylesheet" />
+		<link href="//unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css" rel="stylesheet" />
+	</head>
+	<body class="page from-pod">
+		<header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<a class="navbar-brand" href="/">Exporter-Tiny</a>
+					<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link" href="/installation.html" rel="related" target="_self">Installation</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Manual</a>
+								<ul class="dropdown-menu">
+									<li>
+										<a class="dropdown-item" href="/docs/quickstart.html" rel="related" target="_self">Quick Start</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/exporting.html" rel="related" target="_self">Exporting</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/importing.html" rel="related" target="_self">Importing</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/etc.html" rel="related" target="_self">Etc</a>
+									</li>
+									<li>
+										<hr class="dropdown-divider" />
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/Exporter-Tiny.html" rel="related" target="_self">Exporter::Tiny</a>
+									</li>
+									<li>
+										<a class="dropdown-item active" href="/docs/Exporter-Shiny.html" rel="related" target="_self">Exporter::Shiny</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/Exporter-Almighty.html" rel="related" target="_self">Exporter::Almighty</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://metacpan.org/dist/Exporter-Tiny" rel="related" target="_blank">
+									<i class="fa-solid fa-circle-dot"></i>
+									CPAN
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://github.com/tobyink/p5-exporter-tiny" rel="related" target="_blank">
+									<i class="fa-brands fa-github"></i>
+									Github
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main>
+			<div class="heading container py-3">
+				<h1 class="display-2">
+					Exporter::Shiny
+				</h1>
+			</div>
+			<article class="container">
+				<span id="___top"></span>
+				<h1>
+					<span id="NAME">
+						NAME
+					</span>
+				</h1>
+				<p>
+					Exporter::Shiny - shortcut for Exporter::Tiny
+				</p>
+				<h1>
+					<span id="SYNOPSIS">
+						SYNOPSIS
+					</span>
+				</h1>
+				<pre><code>   use Exporter::Shiny qw( foo bar );</code></pre>
+				<p>
+					Is a shortcut for:
+				</p>
+				<pre><code>   use base "Exporter::Tiny";
+   push our(@EXPORT_OK), qw( foo bar );</code></pre>
+				<p>
+					For compatibility with
+					<a class="podlinkpod" href="https://metacpan.org/pod/Sub%3A%3AExporter">Sub::Exporter</a>
+					, the following longer syntax is also supported:
+				</p>
+				<pre><code>   use Exporter::Shiny -setup =&gt; {
+      exports =&gt; [qw( foo bar )],
+   };</code></pre>
+				<h1>
+					<span id="DESCRIPTION">
+						DESCRIPTION
+					</span>
+				</h1>
+				<p>
+					This is a very small wrapper to simplify using
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny">Exporter::Tiny</a>
+					.
+				</p>
+				<p>
+					It does the following:
+				</p>
+				<ul>
+					<li>
+						Marks your package as loaded in
+						<code>
+							%INC
+						</code>
+						;
+					</li>
+					<li>
+						Pushes any function names in the import list onto your
+						<code>
+							@EXPORT_OK
+						</code>
+						; and
+					</li>
+					<li>
+						Pushes
+						<code>
+							"Exporter::Tiny"
+						</code>
+						onto your
+						<code>
+							@ISA
+						</code>
+						.
+					</li>
+				</ul>
+				<p>
+					It doesn't set up
+					<code>
+						%EXPORT_TAGS
+					</code>
+					or
+					<code>
+						@EXPORT
+					</code>
+					, but there's nothing stopping you doing that yourself.
+				</p>
+				<h1>
+					<span id="BUGS">
+						BUGS
+					</span>
+				</h1>
+				<p>
+					Please report any bugs to
+					<a class="podlinkurl" href="https://github.com/tobyink/p5-exporter-tiny/issues">https://github.com/tobyink/p5-exporter-tiny/issues</a>
+					.
+				</p>
+				<h1>
+					<span id="SEE_ALSO">
+						SEE ALSO
+					</span>
+				</h1>
+				<p>
+					This module is just a wrapper around
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny">Exporter::Tiny</a>
+					, so take a look at
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny%3A%3AManual%3A%3AQuickStart">Exporter::Tiny::Manual::QuickStart</a>
+					and
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny%3A%3AManual%3A%3AExporting">Exporter::Tiny::Manual::Exporting</a>
+					for further information on what features are available.
+				</p>
+				<p>
+					Other interesting exporters:
+					<a class="podlinkpod" href="https://metacpan.org/pod/Sub%3A%3AExporter">Sub::Exporter</a>
+					,
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter">Exporter</a>
+					.
+				</p>
+				<h1>
+					<span id="AUTHOR">
+						AUTHOR
+					</span>
+				</h1>
+				<p>
+					Toby Inkster &lt;tobyink@cpan.org&gt;.
+				</p>
+				<h1>
+					<span id="COPYRIGHT_AND_LICENCE">
+						COPYRIGHT AND LICENCE
+					</span>
+				</h1>
+				<p>
+					This software is copyright (c) 2014, 2017 by Toby Inkster.
+				</p>
+				<p>
+					This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.
+				</p>
+				<h1>
+					<span id="DISCLAIMER_OF_WARRANTIES">
+						DISCLAIMER OF WARRANTIES
+					</span>
+				</h1>
+				<p>
+					THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+				</p>
+			</article>
+		</main>
+		<div style="height: 150px; overflow: hidden;">
+			<svg preserveaspectratio="none" style="height: 100%; width: 100%;" viewbox="0 0 500 150">
+				<path d="M0.00,49.98 C138.82,121.67 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));"></path>
+			</svg>
+		</div>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-lg-12">
+						<h2>
+							Contributing
+						</h2>
+						<p>
+							Exporter-Tiny is an open source project
+							<a href="https://github.com/tobyink/p5-exporter-tiny">hosted on Github</a>
+							— open an issue if you have an idea or find a bug.
+						</p>
+						<p>
+							<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/tobyink/p5-exporter-tiny?style=social" />
+						</p>
+					</div>
+					<div class="col-12 text-center pt-3">
+						<p>
+							Copyright © 2023 Toby Inkster. All rights reserved.
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script src="/assets/scripts/bootstrap.bundle.min.js"></script>
+		<script crossorigin="anonymous" src="//kit.fontawesome.com/6d700b1a29.js"></script>
+		<script src="//unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+		<script>/* <![CDATA[ */
+			/* ]]> *//* <![CDATA[ */hljs.highlightAll();
+		/* ]]> */</script>
+	</body>
+</html>

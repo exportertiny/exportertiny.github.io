@@ -1,0 +1,390 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<title>
+			Exporter-Tiny — Quick Start
+		</title>
+		<link href="/assets/styles/main.css" rel="stylesheet" />
+		<link href="//unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css" rel="stylesheet" />
+	</head>
+	<body class="page from-pod">
+		<header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<a class="navbar-brand" href="/">Exporter-Tiny</a>
+					<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link" href="/installation.html" rel="related" target="_self">Installation</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Manual</a>
+								<ul class="dropdown-menu">
+									<li>
+										<a class="dropdown-item active" href="/docs/quickstart.html" rel="related" target="_self">Quick Start</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/exporting.html" rel="related" target="_self">Exporting</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/importing.html" rel="related" target="_self">Importing</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/etc.html" rel="related" target="_self">Etc</a>
+									</li>
+									<li>
+										<hr class="dropdown-divider" />
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/Exporter-Tiny.html" rel="related" target="_self">Exporter::Tiny</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/Exporter-Shiny.html" rel="related" target="_self">Exporter::Shiny</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="/docs/Exporter-Almighty.html" rel="related" target="_self">Exporter::Almighty</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://metacpan.org/dist/Exporter-Tiny" rel="related" target="_blank">
+									<i class="fa-solid fa-circle-dot"></i>
+									CPAN
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://github.com/tobyink/p5-exporter-tiny" rel="related" target="_blank">
+									<i class="fa-brands fa-github"></i>
+									Github
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main>
+			<div class="heading container py-3">
+				<h1 class="display-2">
+					Quick Start
+				</h1>
+			</div>
+			<article class="container">
+				<span id="___top"></span>
+				<h1>
+					<span id="NAME">
+						NAME
+					</span>
+				</h1>
+				<p>
+					Exporter::Tiny::Manual::QuickStart - the quickest way to get up and running with Exporter::Tiny
+				</p>
+				<h1>
+					<span id="SYNOPSIS">
+						SYNOPSIS
+					</span>
+				</h1>
+				<pre><code>   package MyUtils;
+   
+   use Exporter::Shiny qw( frobnicate );
+   
+   sub frobnicate {
+      ...;   # your code here
+   }
+   
+   1;</code></pre>
+				<p>
+					Now people can use your module like this:
+				</p>
+				<pre><code>   use MyUtils "frobnicate";
+   
+   frobnicate(42);</code></pre>
+				<p>
+					Or like this:
+				</p>
+				<pre><code>   use MyUtils "frobnicate" =&gt; { -as =&gt; "frob" };
+   
+   frob(42);</code></pre>
+				<h1>
+					<span id="DESCRIPTION">
+						DESCRIPTION
+					</span>
+				</h1>
+				<p>
+					See the synopsis. Yes, it's that simple.
+				</p>
+				<h2>
+					<span id="Next_steps">
+						Next steps
+					</span>
+				</h2>
+				<h3>
+					<span id="Default_exports">
+						Default exports
+					</span>
+				</h3>
+				<p>
+					Note that the module in the synopsis doesn't export anything by default. If people load
+					<code>
+						MyUtils
+					</code>
+					like this:
+				</p>
+				<pre><code>   use MyUtils;</code></pre>
+				<p>
+					Then they haven't imported any functions. You can specify a default set of functions to be exported like this:
+				</p>
+				<pre><code>   package MyUtils;
+   
+   use Exporter::Shiny qw( frobnicate );
+   
+   our @EXPORT = qw( frobnicate );
+   
+   sub frobnicate { ... }
+   
+   1;</code></pre>
+				<p>
+					Or, if you want to be a superstar rock god:
+				</p>
+				<pre><code>   package MyUtils;
+   
+   use Exporter::Shiny our @EXPORT = qw( frobnicate );
+   
+   sub frobnicate { ... }
+   
+   1;</code></pre>
+				<h3>
+					<span id="Tags">
+						Tags
+					</span>
+				</h3>
+				<p>
+					You can provide tags for people to use:
+				</p>
+				<pre><code>   package MyUtils;
+   
+   use Exporter::Shiny qw( frobnicate red green blue );
+   
+   our %EXPORT_TAGS = (
+      utils   =&gt; [qw/ frobnicate /],
+      colours =&gt; [qw/ red green blue /],
+   );
+   
+   sub frobnicate { ... }
+   sub red        { ... }
+   sub green      { ... }
+   sub blue       { ... }
+   
+   1;</code></pre>
+				<p>
+					And people can now import your functions like this:
+				</p>
+				<pre><code>   use MyUtils ":colours";</code></pre>
+				<p>
+					Or this:
+				</p>
+				<pre><code>   use MyUtils "-colours";</code></pre>
+				<p>
+					Or take advantage of the fact that Perl magically quotes barewords preceded by a hyphen:
+				</p>
+				<pre><code>   use MyUtils -colours;</code></pre>
+				<p>
+					Two tags are automatically defined for you:
+					<code>
+						-default
+					</code>
+					(which is just the same as
+					<code>
+						@EXPORT
+					</code>
+					) and
+					<code>
+						-all
+					</code>
+					(which is the union of
+					<code>
+						@EXPORT
+					</code>
+					and
+					<code>
+						@EXPORT_OK
+					</code>
+					). If you don't like them, then you can override them:
+				</p>
+				<pre><code>   our %EXPORT_TAGS = (
+      default =&gt; \@some_other_stuff,
+      all     =&gt; \@more_stuff,
+   );</code></pre>
+				<h3>
+					<span id="Generators">
+						Generators
+					</span>
+				</h3>
+				<p>
+					Exporting normally just works by copying a sub from your package into your caller's package. But sometimes it's useful instead to generate a
+					<i>
+						custom
+					</i>
+					sub to insert into your caller's package. This is pretty easy to do.
+				</p>
+				<pre><code>   package MyUtils;
+   
+   use Exporter::Shiny qw( frobnicate );
+   
+   sub _generate_frobnicate {
+      my ( $me, $name, $args, $globals ) = @_;
+      my $caller = $globals-&gt;{into};
+      
+      return sub {
+          ...;  # your code here
+      };
+   }
+   
+   1;</code></pre>
+				<p>
+					The parameter
+					<code>
+						$me
+					</code>
+					here is a string containing the package name which is being imported from;
+					<code>
+						$caller
+					</code>
+					is the destination package;
+					<code>
+						$name
+					</code>
+					is the name of the sub (in this case "frobnicate"); and
+					<code>
+						$args
+					</code>
+					is a custom argument for this function. (By convention,
+					<code>
+						$args
+					</code>
+					is normally a hashref.)
+				</p>
+				<pre><code>   # The hashref { foo =&gt; 42 } is $args above.
+   #
+   use MyUtils "frobnicate" =&gt; { foo =&gt; 42 };</code></pre>
+				<h2>
+					<span id="Avoiding_Exporter::Shiny">
+						Avoiding Exporter::Shiny
+					</span>
+				</h2>
+				<p>
+					Exporter::Shiny is a tiny shim around Exporter::Tiny. It should mostly do what you want, but you may sometimes prefer to use Exporter::Tiny directly.
+				</p>
+				<p>
+					The example in the synopsis could have been written as:
+				</p>
+				<pre><code>   package MyUtils;
+   
+   use parent "Exporter::Tiny";
+   our @EXPORT_OK = qw( frobnicate );
+   
+   sub frobnicate {
+      ...;   # your code here
+   }
+   
+   1;</code></pre>
+				<p>
+					What Exporter::Shiny does is mostly just to set
+					<code>
+						@EXPORT_OK
+					</code>
+					for you and set up inheritance from the base class (Exporter::Tiny).
+				</p>
+				<p>
+					Exporter::Shiny also sets
+					<code>
+						$INC{'MyUtils.pm'}
+					</code>
+					for you, which in usually makes little difference, but is useful in some edge cases.
+				</p>
+				<h1>
+					<span id="SEE_ALSO">
+						SEE ALSO
+					</span>
+				</h1>
+				<p>
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3AShiny">Exporter::Shiny</a>
+					,
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny">Exporter::Tiny</a>
+					.
+				</p>
+				<p>
+					For more advanced information, see
+					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter%3A%3ATiny%3A%3AManual%3A%3AExporting">Exporter::Tiny::Manual::Exporting</a>
+					.
+				</p>
+				<h1>
+					<span id="AUTHOR">
+						AUTHOR
+					</span>
+				</h1>
+				<p>
+					Toby Inkster &lt;tobyink@cpan.org&gt;.
+				</p>
+				<h1>
+					<span id="COPYRIGHT_AND_LICENCE">
+						COPYRIGHT AND LICENCE
+					</span>
+				</h1>
+				<p>
+					This software is copyright (c) 2013-2014, 2017 by Toby Inkster.
+				</p>
+				<p>
+					This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.
+				</p>
+				<h1>
+					<span id="DISCLAIMER_OF_WARRANTIES">
+						DISCLAIMER OF WARRANTIES
+					</span>
+				</h1>
+				<p>
+					THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+				</p>
+			</article>
+		</main>
+		<div style="height: 150px; overflow: hidden;">
+			<svg preserveaspectratio="none" style="height: 100%; width: 100%;" viewbox="0 0 500 150">
+				<path d="M0.00,49.98 C138.82,121.67 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));"></path>
+			</svg>
+		</div>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-lg-12">
+						<h2>
+							Contributing
+						</h2>
+						<p>
+							Exporter-Tiny is an open source project
+							<a href="https://github.com/tobyink/p5-exporter-tiny">hosted on Github</a>
+							— open an issue if you have an idea or find a bug.
+						</p>
+						<p>
+							<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/tobyink/p5-exporter-tiny?style=social" />
+						</p>
+					</div>
+					<div class="col-12 text-center pt-3">
+						<p>
+							Copyright © 2023 Toby Inkster. All rights reserved.
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script src="/assets/scripts/bootstrap.bundle.min.js"></script>
+		<script crossorigin="anonymous" src="//kit.fontawesome.com/6d700b1a29.js"></script>
+		<script src="//unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+		<script>/* <![CDATA[ */
+			/* ]]> *//* <![CDATA[ */hljs.highlightAll();
+		/* ]]> */</script>
+	</body>
+</html>
