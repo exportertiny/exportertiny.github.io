@@ -67,15 +67,57 @@ print frob( 42 ), "\n";</code></pre>
 
 ----
 
-<div class="text-center">
-	<h2 class="display-1">Download</h2>
-	<p><a style="font-size:2rem;text-decoration:none" href="https://metacpan.org/dist/Exporter-Tiny"><i class="fa-solid fa-download"></i> Download from the CPAN</a></p>
+<div class="row">
+	<div class="col-12 col-lg-6">
+		<h2 class="display-1">Download</h2>
+		<p><a style="font-size:1.5rem;text-decoration:none" href="https://metacpan.org/dist/Exporter-Tiny"><i class="fa-solid fa-download"></i> Download from the CPAN</a></p>
+	</div>
+	<div class="col-12 col-lg-6">
+		<p>Exporter-Tiny is available for most Linux and BSD distributions.
+		See <a href="/installation.html">installation advice</a>.</p>
+		<table class="table">
+			<tbody>
+				<tr>
+					<th><i class="fa-brands fa-linux"></i> Arch Linux</th>
+					<td><a target="_blank" href="https://archlinux.org/packages/extra/any/perl-exporter-tiny/">perl-exporter-tiny</a></td>
+				</tr>
+				<tr>
+					<th><i class="fa-brands fa-linux"></i> Debian</th>
+					<td><a target="_blank" href="https://debian.pkgs.org/11/debian-main-amd64/libexporter-tiny-perl_1.002002-1_all.deb.html">libexporter-tiny-perl</a></td>
+				</tr>
+				<tr>
+					<th><i class="fa-brands fa-fedora"></i> Fedora OS</th>
+					<td><a target="_blank" href="https://packages.fedoraproject.org/pkgs/perl-Exporter-Tiny/perl-Exporter-Tiny/">perl-Exporter-Tiny</a></td>
+				</tr>
+				<tr>
+					<th><i class="fa-brands fa-linux"></i> Manjaro</th>
+					<td><a target="_blank" href="https://software.manjaro.org/package/perl-exporter-tiny">perl-exporter-tiny</a></td>
+				</tr>
+				<tr>
+					<th><i class="fa-brands fa-redhat"></i> Redhat</th>
+					<td><a target="_blank" href="https://packages.fedoraproject.org/pkgs/perl-Exporter-Tiny/perl-Exporter-Tiny/">perl-Exporter-Tiny</a></td>
+				</tr>
+				<tr>
+					<th><i class="fa-brands fa-suse"></i> SuSE</th>
+					<td><a target="_blank" href="https://software.opensuse.org/package/perl-Exporter-Tiny">perl-Exporter-Tiny</a></td>
+				</tr>
+				<tr>
+					<th><i class="fa-brands fa-ubuntu"></i> Ubuntu</th>
+					<td><a target="_blank" href="https://packages.ubuntu.com/search?keywords=libexporter-tiny-perl&searchon=names">libexporter-tiny-perl</a></td>
+				</tr>
+				<tr>
+					<th><i class="fa-brands fa-freebsd"></i> FreeBSD</th>
+					<td><a target="_blank" href="https://www.freshports.org/devel/p5-Exporter-Tiny">p5-Exporter-Tiny</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
 
 
 ----
 
 <div class="text-center">
-	<p style="font-size:2rem">Powered by <a class="text-decoration:none" href="http://www.perl.org/">Perl</a>.</p>
+	<p style="font-size:2rem">Powered by <a class="text-decoration:none" href="http://www.perl.org/">Perl</a></p>
 </div>
 

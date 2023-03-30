@@ -1,6 +1,20 @@
 Installing Exporter-Tiny should be straightforward.
 
-# Installation with cpanminus
+# Linux/BSD installation
+
+If you are using Linux, BSD, or a similar operating system, and you are
+using the system copy of Perl (usually `/usr/bin/perl`), then the best
+way to install Exporter-Tiny is using your operating system's package
+management tools.
+
+<a href="https://opensource.com/article/18/8/how-install-software-linux-command-line"
+target="_blank" class="btn btn-primary">How to install software from the Linux command line</a>
+
+----
+
+# Installation using a CPAN client
+
+## cpanminus
 
 If you have cpanm, you only need one line:
 
@@ -11,9 +25,7 @@ the "-S" flag to cpanm, which uses sudo to install the module:
 
     cpanm -S Exporter::Tiny
 
-----
-
-# Installation with the CPAN shell
+## The CPAN Shell
 
 Alternatively, if your CPAN shell is set up, you should just be able to
 do:
