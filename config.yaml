@@ -4,6 +4,9 @@ abstract_html: 'an exporter with the features of <span class="text-secondary">Su
 github: https://github.com/tobyink/p5-exporter-tiny
 issues: https://github.com/tobyink/p5-exporter-tiny/issues
 copyright: "Copyright © 2023 Toby Inkster. All rights reserved."
+sponsor:
+  html: "You can sponsor this project on Github."
+  href: https://github.com/sponsors/tobyink
 theme:
   light: "#e4e3e1"
   dark: "#32201D"
