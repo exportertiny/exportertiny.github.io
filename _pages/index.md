@@ -71,7 +71,7 @@ print frob( 42 ), "\n";</code></pre>
 <div class="row">
 	<div class="col-12 col-lg-6">
 		<h2 class="display-1">Download</h2>
-		<p><a style="font-size:1.5rem;text-decoration:none" href="https://metacpan.org/dist/Exporter-Tiny"><i class="fa-solid fa-download"></i> Download from the CPAN</a></p>
+		<p><a class="btn btn-primary btn-lg" href="https://metacpan.org/dist/Exporter-Tiny"><i class="fa-solid fa-download"></i> Download from the CPAN</a></p>
 	</div>
 	<div class="col-12 col-lg-6">
 		<p>Exporter-Tiny is available for most Linux and BSD distributions.
