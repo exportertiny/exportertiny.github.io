@@ -5,7 +5,7 @@
 		<title>
 			Exporter-Tiny — Exporter::Almighty
 		</title>
-		<link href="/assets/styles/main.css?v=1680273723" rel="stylesheet" />
+		<link href="/assets/styles/main.css?v=1680284673" rel="stylesheet" />
 		<link href="//unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css" rel="stylesheet" />
 	</head>
 	<body class="page from-pod" id="top">
@@ -75,19 +75,11 @@
 			</div>
 			<article class="container">
 				<span id="___top"></span>
-				<h1>
-					<span id="NAME">
-						NAME
+				<h2>
+					<span id="Synopsis">
+						Synopsis
 					</span>
-				</h1>
-				<p>
-					Exporter::Almighty - combining Exporter::Tiny with some other stuff for added power
-				</p>
-				<h1>
-					<span id="SYNOPSIS">
-						SYNOPSIS
-					</span>
-				</h1>
+				</h2>
 				<pre><code>  package Your::Package;
   
   use v5.12;
@@ -114,11 +106,11 @@
   sub bar1 { ... }
   
   1;</code></pre>
-				<h1>
-					<span id="DESCRIPTION">
-						DESCRIPTION
+				<h2>
+					<span id="Description">
+						Description
 					</span>
-				</h1>
+				</h2>
 				<p>
 					This module aims to make building exporters easier. It is based on
 					<a class="podlinkpod" href="/manual/Exporter-Tiny.html">Exporter::Tiny</a>
@@ -146,11 +138,11 @@
 					</code>
 					so that your package can benefit from features which don't exist in legacy versions of Perl.
 				</p>
-				<h2>
+				<h3>
 					<span id="Setup_Options">
 						Setup Options
 					</span>
-				</h2>
+				</h3>
 				<p>
 					Exporter::Almighty's own setup happens through its import. A setup hashref is passed as per the example in the
 					<a class="podlinkpod" href="#SYNOPSIS">"SYNOPSIS"</a>
@@ -167,13 +159,13 @@
 					</code>
 					!
 				</p>
-				<h3>
+				<h4>
 					<span id="tag">
 						<code>
 							tag
 						</code>
 					</span>
-				</h3>
+				</h4>
 				<p>
 					This is a hashref where the keys are tag names and the values are arrayrefs of function names.
 				</p>
@@ -228,13 +220,13 @@
 				<p>
 					By convention, tags names should be snake_case.
 				</p>
-				<h3>
+				<h4>
 					<span id="const">
 						<code>
 							const
 						</code>
 					</span>
-				</h3>
+				</h4>
 				<p>
 					Similar to
 					<code>
@@ -271,13 +263,13 @@
 				</p>
 				<pre><code>  use Your::Package qw( $RED $GREEN $BLUE );  # import ro vars by name
   use Your::Package qw( :ro_vars );           # import ALL ro vars</code></pre>
-				<h3>
+				<h4>
 					<span id="type">
 						<code>
 							type
 						</code>
 					</span>
-				</h3>
+				</h4>
 				<p>
 					This is an arrayref of type libraries. Each library listed will be
 					<i>
@@ -322,13 +314,13 @@
 					<a class="podlinkpod" href="/manual/Exporter-Tiny.html">Exporter::Tiny</a>
 					. (Type::Library is itself a subclass of Exporter::Tiny, so you don't miss out on any features.)
 				</p>
-				<h3>
+				<h4>
 					<span id="enum">
 						<code>
 							enum
 						</code>
 					</span>
-				</h3>
+				</h4>
 				<p>
 					This is a hashref where keys are enumerated type names, and the values are arrayrefs of strings.
 				</p>
@@ -393,13 +385,13 @@
 				<p>
 					By convention, enum types should be UpperCamelCase.
 				</p>
-				<h3>
+				<h4>
 					<span id="class">
 						<code>
 							class
 						</code>
 					</span>
-				</h3>
+				</h4>
 				<p>
 					This is an arrayref of class names.
 				</p>
@@ -444,13 +436,13 @@
 				<p>
 					Exporter::Almighty will attempt to pre-emptively load modules mentioned here, so you don't need to do it yourself. However if the modules don't exist, it won't complain.
 				</p>
-				<h3>
+				<h4>
 					<span id="role">
 						<code>
 							role
 						</code>
 					</span>
-				</h3>
+				</h4>
 				<p>
 					This works the same as
 					<code>
@@ -458,13 +450,13 @@
 					</code>
 					, except for roles.
 				</p>
-				<h3>
+				<h4>
 					<span id="duck">
 						<code>
 							duck
 						</code>
 					</span>
-				</h3>
+				</h4>
 				<p>
 					This is a hashref where keys are "duck type" type names, and the values are arrayrefs of method names.
 				</p>
@@ -484,13 +476,13 @@
 					<a class="podlinkpod" href="https://metacpan.org/pod/Type%3A%3ALibrary">Type::Library</a>
 					.
 				</p>
-				<h3>
+				<h4>
 					<span id="also">
 						<code>
 							also
 						</code>
 					</span>
-				</h3>
+				</h4>
 				<p>
 					A list of other packages to also export to your caller. Each package name can optionally be followed by an arrayref of import arguments.
 				</p>
@@ -514,11 +506,11 @@
 					<a class="podlinkpod" href="https://metacpan.org/pod/namespace%3A%3Aautoclean">namespace::autoclean</a>
 					are good packages to consider listing here. Packages that export named functions are less good.
 				</p>
-				<h2>
+				<h3>
 					<span id="API">
 						API
 					</span>
-				</h2>
+				</h3>
 				<p>
 					Instead of:
 				</p>
@@ -534,16 +526,16 @@
 				<p>
 					Exporter::Almighty is also designed to be easily subclassable.
 				</p>
-				<h2>
+				<h3>
 					<span id="Exporter::Tiny_features_you_get_for_free">
 						Exporter::Tiny features you get for free
 					</span>
-				</h2>
-				<h3>
+				</h3>
+				<h4>
 					<span id="Features_for_you">
 						Features for you
 					</span>
-				</h3>
+				</h4>
 				<p>
 					Exporter::Almighty will import
 					<a class="podlinkpod" href="https://metacpan.org/pod/strict">strict</a>
@@ -585,11 +577,11 @@
   use Your::Package 'xxx' =&gt; \%vals;
   
   xxx( ... );</code></pre>
-				<h3>
+				<h4>
 					<span id="Features_for_your_caller">
 						Features for your caller
 					</span>
-				</h3>
+				</h4>
 				<p>
 					Your caller can do lexical imports:
 				</p>
@@ -603,21 +595,11 @@
 					<a class="podlinkpod" href="/manual/importing.html">Exporter::Tiny::Manual::Importing</a>
 					.
 				</p>
-				<h1>
-					<span id="BUGS">
-						BUGS
+				<h2>
+					<span id="See_Also">
+						See Also
 					</span>
-				</h1>
-				<p>
-					Please report any bugs to
-					<a class="podlinkurl" href="https://github.com/tobyink/p5-exporter-almighty/issues">https://github.com/tobyink/p5-exporter-almighty/issues</a>
-					.
-				</p>
-				<h1>
-					<span id="SEE_ALSO">
-						SEE ALSO
-					</span>
-				</h1>
+				</h2>
 				<p>
 					<a class="podlinkpod" href="/manual/Exporter-Tiny.html">Exporter::Tiny</a>
 					,
@@ -627,33 +609,6 @@
 				<p>
 					<a class="podlinkpod" href="https://metacpan.org/pod/CXC%3A%3AExporter%3A%3AUtil">CXC::Exporter::Util</a>
 					was an inspiration for this module and the features overlap a bit.
-				</p>
-				<h1>
-					<span id="AUTHOR">
-						AUTHOR
-					</span>
-				</h1>
-				<p>
-					Toby Inkster &lt;tobyink@cpan.org&gt;.
-				</p>
-				<h1>
-					<span id="COPYRIGHT_AND_LICENCE">
-						COPYRIGHT AND LICENCE
-					</span>
-				</h1>
-				<p>
-					This software is copyright (c) 2023 by Toby Inkster.
-				</p>
-				<p>
-					This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.
-				</p>
-				<h1>
-					<span id="DISCLAIMER_OF_WARRANTIES">
-						DISCLAIMER OF WARRANTIES
-					</span>
-				</h1>
-				<p>
-					THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 				</p>
 			</article>
 		</main>

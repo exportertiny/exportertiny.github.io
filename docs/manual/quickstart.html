@@ -5,7 +5,7 @@
 		<title>
 			Exporter-Tiny — Quick Start
 		</title>
-		<link href="/assets/styles/main.css?v=1680273723" rel="stylesheet" />
+		<link href="/assets/styles/main.css?v=1680284673" rel="stylesheet" />
 		<link href="//unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css" rel="stylesheet" />
 	</head>
 	<body class="page from-pod" id="top">
@@ -75,19 +75,11 @@
 			</div>
 			<article class="container">
 				<span id="___top"></span>
-				<h1>
-					<span id="NAME">
-						NAME
+				<h2>
+					<span id="Synopsis">
+						Synopsis
 					</span>
-				</h1>
-				<p>
-					Exporter::Tiny::Manual::QuickStart - the quickest way to get up and running with Exporter::Tiny
-				</p>
-				<h1>
-					<span id="SYNOPSIS">
-						SYNOPSIS
-					</span>
-				</h1>
+				</h2>
 				<pre><code>   package MyUtils;
    
    use Exporter::Shiny qw( frobnicate );
@@ -109,24 +101,24 @@
 				<pre><code>   use MyUtils "frobnicate" =&gt; { -as =&gt; "frob" };
    
    frob(42);</code></pre>
-				<h1>
-					<span id="DESCRIPTION">
-						DESCRIPTION
+				<h2>
+					<span id="Description">
+						Description
 					</span>
-				</h1>
+				</h2>
 				<p>
 					See the synopsis. Yes, it's that simple.
 				</p>
-				<h2>
+				<h3>
 					<span id="Next_steps">
 						Next steps
 					</span>
-				</h2>
-				<h3>
+				</h3>
+				<h4>
 					<span id="Default_exports">
 						Default exports
 					</span>
-				</h3>
+				</h4>
 				<p>
 					Note that the module in the synopsis doesn't export anything by default. If people load
 					<code>
@@ -157,11 +149,11 @@
    sub frobnicate { ... }
    
    1;</code></pre>
-				<h3>
+				<h4>
 					<span id="Tags">
 						Tags
 					</span>
-				</h3>
+				</h4>
 				<p>
 					You can provide tags for people to use:
 				</p>
@@ -219,11 +211,11 @@
       default =&gt; \@some_other_stuff,
       all     =&gt; \@more_stuff,
    );</code></pre>
-				<h3>
+				<h4>
 					<span id="Generators">
 						Generators
 					</span>
-				</h3>
+				</h4>
 				<p>
 					Exporting normally just works by copying a sub from your package into your caller's package. But sometimes it's useful instead to generate a
 					<i>
@@ -271,11 +263,11 @@
 				<pre><code>   # The hashref { foo =&gt; 42 } is $args above.
    #
    use MyUtils "frobnicate" =&gt; { foo =&gt; 42 };</code></pre>
-				<h2>
+				<h3>
 					<span id="Avoiding_Exporter::Shiny">
 						Avoiding Exporter::Shiny
 					</span>
-				</h2>
+				</h3>
 				<p>
 					Exporter::Shiny is a tiny shim around Exporter::Tiny. It should mostly do what you want, but you may sometimes prefer to use Exporter::Tiny directly.
 				</p>
@@ -306,11 +298,11 @@
 					</code>
 					for you, which in usually makes little difference, but is useful in some edge cases.
 				</p>
-				<h1>
-					<span id="SEE_ALSO">
-						SEE ALSO
+				<h2>
+					<span id="See_Also">
+						See Also
 					</span>
-				</h1>
+				</h2>
 				<p>
 					<a class="podlinkurl" href="https://exportertiny.github.io/">https://exportertiny.github.io/</a>
 					.
@@ -325,33 +317,6 @@
 					For more advanced information, see
 					<a class="podlinkpod" href="/manual/exporting.html">Exporter::Tiny::Manual::Exporting</a>
 					.
-				</p>
-				<h1>
-					<span id="AUTHOR">
-						AUTHOR
-					</span>
-				</h1>
-				<p>
-					Toby Inkster &lt;tobyink@cpan.org&gt;.
-				</p>
-				<h1>
-					<span id="COPYRIGHT_AND_LICENCE">
-						COPYRIGHT AND LICENCE
-					</span>
-				</h1>
-				<p>
-					This software is copyright (c) 2013-2014, 2017, 2022-2023 by Toby Inkster.
-				</p>
-				<p>
-					This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.
-				</p>
-				<h1>
-					<span id="DISCLAIMER_OF_WARRANTIES">
-						DISCLAIMER OF WARRANTIES
-					</span>
-				</h1>
-				<p>
-					THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 				</p>
 			</article>
 		</main>

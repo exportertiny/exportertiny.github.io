@@ -5,7 +5,7 @@
 		<title>
 			Exporter-Tiny — Exporting
 		</title>
-		<link href="/assets/styles/main.css?v=1680273723" rel="stylesheet" />
+		<link href="/assets/styles/main.css?v=1680284673" rel="stylesheet" />
 		<link href="//unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css" rel="stylesheet" />
 	</head>
 	<body class="page from-pod" id="top">
@@ -75,19 +75,11 @@
 			</div>
 			<article class="container">
 				<span id="___top"></span>
-				<h1>
-					<span id="NAME">
-						NAME
+				<h2>
+					<span id="Synopsis">
+						Synopsis
 					</span>
-				</h1>
-				<p>
-					Exporter::Tiny::Manual::Exporting - creating an exporter using Exporter::Tiny
-				</p>
-				<h1>
-					<span id="SYNOPSIS">
-						SYNOPSIS
-					</span>
-				</h1>
+				</h2>
 				<p>
 					<b>
 						Read
@@ -95,11 +87,11 @@
 						first!
 					</b>
 				</p>
-				<h1>
-					<span id="DESCRIPTION">
-						DESCRIPTION
+				<h2>
+					<span id="Description">
+						Description
 					</span>
-				</h1>
+				</h2>
 				<p>
 					Simple configuration works the same as
 					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter">Exporter</a>
@@ -126,11 +118,11 @@
 					</b>
 					, which means that your module (which is a subclass of Exporter::Tiny) can override them to provide interesting behaviour.
 				</p>
-				<h2>
+				<h3>
 					<span id="Advanced_Tag_Stuff">
 						Advanced Tag Stuff
 					</span>
-				</h2>
+				</h3>
 				<p>
 					You can define tags using other tags:
 				</p>
@@ -151,11 +143,11 @@
 					</b>
 					If you create a cycle in the tags, this could put Exporter::Tiny into an infinite loop expanding the tags. Don't do that.
 				</p>
-				<h2>
+				<h3>
 					<span id="More_on_Generators">
 						More on Generators
 					</span>
-				</h2>
+				</h3>
 				<p>
 					Exporter::Tiny has always allowed exported subs to be generated (like
 					<a class="podlinkpod" href="https://metacpan.org/pod/Sub%3A%3AExporter">Sub::Exporter</a>
@@ -222,11 +214,11 @@
       
       return keys(%constants);
    };</code></pre>
-				<h2>
+				<h3>
 					<span id="Hooks">
 						Hooks
 					</span>
-				</h2>
+				</h3>
 				<p>
 					Sometimes as well as exporting stuff, you want to do some setup or something.
 				</p>
@@ -268,11 +260,11 @@
 				<p>
 					As you might have guessed, these methods were originally intended to validate the global options hash, but can be used to perform any general duties before the real exporting work is done.
 				</p>
-				<h2>
+				<h3>
 					<span id="Overriding_Internals">
 						Overriding Internals
 					</span>
-				</h2>
+				</h3>
 				<p>
 					An important difference between
 					<a class="podlinkpod" href="https://metacpan.org/pod/Exporter">Exporter</a>
@@ -533,11 +525,11 @@
 						</p>
 					</dd>
 				</dl>
-				<h1>
-					<span id="SEE_ALSO">
-						SEE ALSO
+				<h2>
+					<span id="See_Also">
+						See Also
 					</span>
-				</h1>
+				</h2>
 				<p>
 					<a class="podlinkurl" href="https://exportertiny.github.io/">https://exportertiny.github.io/</a>
 					.
@@ -547,33 +539,6 @@
 					,
 					<a class="podlinkpod" href="/manual/Exporter-Tiny.html">Exporter::Tiny</a>
 					.
-				</p>
-				<h1>
-					<span id="AUTHOR">
-						AUTHOR
-					</span>
-				</h1>
-				<p>
-					Toby Inkster &lt;tobyink@cpan.org&gt;.
-				</p>
-				<h1>
-					<span id="COPYRIGHT_AND_LICENCE">
-						COPYRIGHT AND LICENCE
-					</span>
-				</h1>
-				<p>
-					This software is copyright (c) 2013-2014, 2017, 2022-2023 by Toby Inkster.
-				</p>
-				<p>
-					This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.
-				</p>
-				<h1>
-					<span id="DISCLAIMER_OF_WARRANTIES">
-						DISCLAIMER OF WARRANTIES
-					</span>
-				</h1>
-				<p>
-					THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 				</p>
 			</article>
 		</main>

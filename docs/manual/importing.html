@@ -5,7 +5,7 @@
 		<title>
 			Exporter-Tiny — Importing
 		</title>
-		<link href="/assets/styles/main.css?v=1680273723" rel="stylesheet" />
+		<link href="/assets/styles/main.css?v=1680284673" rel="stylesheet" />
 		<link href="//unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css" rel="stylesheet" />
 	</head>
 	<body class="page from-pod" id="top">
@@ -75,19 +75,11 @@
 			</div>
 			<article class="container">
 				<span id="___top"></span>
-				<h1>
-					<span id="NAME">
-						NAME
+				<h2>
+					<span id="Description">
+						Description
 					</span>
-				</h1>
-				<p>
-					Exporter::Tiny::Manual::Importing - importing from Exporter::Tiny-based modules
-				</p>
-				<h1>
-					<span id="DESCRIPTION">
-						DESCRIPTION
-					</span>
-				</h1>
+				</h2>
 				<p>
 					For the purposes of this discussion we'll assume we have a module called
 					<code>
@@ -132,11 +124,11 @@
 					<a class="podlinkpod" href="https://metacpan.org/pod/Sub%3A%3AExporter">Sub::Exporter</a>
 					. That is intentional. Exporter::Tiny doesn't attempt to provide every feature of Sub::Exporter, but where it does it usually uses a fairly similar API.
 				</p>
-				<h2>
+				<h3>
 					<span id="Basic_importing">
 						Basic importing
 					</span>
-				</h2>
+				</h3>
 				<p>
 					It's easy to import a single function from a module:
 				</p>
@@ -169,11 +161,11 @@
 					And it's possible to mix function names and tags in the same list:
 				</p>
 				<pre><code>   use MyUtils qw( frobnicate :colours );</code></pre>
-				<h2>
+				<h3>
 					<span id="Renaming_imported_functions">
 						Renaming imported functions
 					</span>
-				</h2>
+				</h3>
 				<p>
 					It's possible to rename a function you're importing:
 				</p>
@@ -278,11 +270,11 @@
 					</code>
 					also works in the global options hash.
 				</p>
-				<h2>
+				<h3>
 					<span id="DO_NOT_WANT!">
 						DO NOT WANT!
 					</span>
-				</h2>
+				</h3>
 				<p>
 					Sometimes you want to supply a list of functions you
 					<b>
@@ -299,11 +291,11 @@
 					Negated imports always "win", so the following will not import "frobnicate", no matter how many times you repeat it...
 				</p>
 				<pre><code>   use MyUtils qw( !frobnicate frobnicate frobnicate frobnicate );</code></pre>
-				<h2>
+				<h3>
 					<span id="Importing_by_regexp">
 						Importing by regexp
 					</span>
-				</h2>
+				</h3>
 				<p>
 					Here's how you could import all functions beginning with an "f":
 				</p>
@@ -327,11 +319,11 @@
 					</code>
 					).
 				</p>
-				<h2>
+				<h3>
 					<span id="Import_functions_into_another_package">
 						Import functions into another package
 					</span>
-				</h2>
+				</h3>
 				<p>
 					Occasionally you need to import functions not into your own package, but into a different package. You can do that like this:
 				</p>
@@ -347,11 +339,11 @@
 					</b>
 					exporters.
 				</p>
-				<h2>
+				<h3>
 					<span id="Lexical_subs_on_Perl_5.37.2_and_above">
 						Lexical subs on Perl 5.37.2 and above
 					</span>
-				</h2>
+				</h3>
 				<p>
 					Often you want to make use of an exported function, but don't want it to "pollute" your namespace.
 				</p>
@@ -382,21 +374,21 @@
 					</code>
 					is included in a stable release of Perl.
 				</p>
-				<h2>
+				<h3>
 					<span id="Lexical_subs_on_Perl_older_than_5.37.2">
 						Lexical subs on Perl older than 5.37.2
 					</span>
-				</h2>
+				</h3>
 				<p>
 					If you install
 					<a class="podlinkpod" href="https://metacpan.org/pod/Lexical%3A%3AVar">Lexical::Var</a>
 					, then lexical imports should work on versions of Perl as old as 5.12.
 				</p>
-				<h2>
+				<h3>
 					<span id="Unimporting">
 						Unimporting
 					</span>
-				</h2>
+				</h3>
 				<p>
 					You can unimport the functions that MyUtils added to your namespace:
 				</p>
@@ -414,11 +406,11 @@
 				<p>
 					Unimporting using tags and regexps should mostly do what you want.
 				</p>
-				<h1>
-					<span id="DIAGNOSTICS">
-						DIAGNOSTICS
+				<h2>
+					<span id="Diagnostics">
+						Diagnostics
 					</span>
-				</h1>
+				</h2>
 				<dl>
 					<dt>
 						<span id="Overwriting_existing_sub_'%s::%s'_with_sub_'%s'_exported_by_%s">
@@ -496,11 +488,11 @@
 						</p>
 					</dd>
 				</dl>
-				<h1>
-					<span id="SEE_ALSO">
-						SEE ALSO
+				<h2>
+					<span id="See_Also">
+						See Also
 					</span>
-				</h1>
+				</h2>
 				<p>
 					<a class="podlinkurl" href="https://exportertiny.github.io/">https://exportertiny.github.io/</a>
 					.
@@ -510,33 +502,6 @@
 					,
 					<a class="podlinkpod" href="/manual/Exporter-Tiny.html">Exporter::Tiny</a>
 					.
-				</p>
-				<h1>
-					<span id="AUTHOR">
-						AUTHOR
-					</span>
-				</h1>
-				<p>
-					Toby Inkster &lt;tobyink@cpan.org&gt;.
-				</p>
-				<h1>
-					<span id="COPYRIGHT_AND_LICENCE">
-						COPYRIGHT AND LICENCE
-					</span>
-				</h1>
-				<p>
-					This software is copyright (c) 2013-2014, 2017, 2022-2023 by Toby Inkster.
-				</p>
-				<p>
-					This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.
-				</p>
-				<h1>
-					<span id="DISCLAIMER_OF_WARRANTIES">
-						DISCLAIMER OF WARRANTIES
-					</span>
-				</h1>
-				<p>
-					THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 				</p>
 			</article>
 		</main>
