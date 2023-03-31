@@ -2,6 +2,7 @@
 	<p class="lead">Exporter-Tiny is a Perl distribution including Exporter::Tiny and Exporter::Shiny.</p>
 	<p class="lead">An exporter is a module which implements an <code>import</code> method which allows other modules to import functions and variables into its namespace.</p>
 	<p class="lead">Exporters are essential for modular, functional programming in Perl.</p>
+	<p class="pt-5"><img alt="GitHub Issues" src="https://img.shields.io/github/issues/tobyink/p5-exporter-tiny" title="GitHub Issues"> <img alt="GitHub Actions" src="https://github.com/tobyink/p5-exporter-tiny/workflows/CI/badge.svg" title="GitHub Actions"> <img alt="Coveralls status" src="https://coveralls.io/repos/github/tobyink/p5-exporter-tiny/badge.svg?branch=master" title="Coveralls status"> <img alt="Codecov status" src="https://codecov.io/gh/tobyink/p5-exporter-tiny/branch/master/graph/badge.svg" title="Codecov status"></p>
 </div>
 
 ----
@@ -117,7 +118,10 @@ print frob( 42 ), "\n";</code></pre>
 
 ----
 
-<div class="text-center">
+<div class="text-center w-lg-75 w-xl-50 mx-auto">
 	<p style="font-size:2rem">Powered by <a class="text-decoration:none" href="http://www.perl.org/">Perl</a></p>
+	
+	<h2 class="h4">What is Perl?</h2>
+	<p>Perl is a high-level, general-purpose, interpreted, dynamic programming language. Perl was developed by Larry Wall in 1987 as a general-purpose Unix scripting language to make report processing easier. Since then, it has undergone many changes and revisions. In 1998, it was also referred to as the "duct tape that holds the Internet together."</p>
 </div>
 
