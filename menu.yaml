@@ -1,28 +1,60 @@
 - name: installation
   title: Installation
   source: _pages/installation.md
+  meta:
+    - name: description
+      property: "s:abstract dc:description og:description"
+      content: "How to install the Exporter-Tiny distribution for Perl."
 - name: docs
   title: Manual
   children:
     - name: manual/quickstart
       title: Quick Start
       pod: Exporter::Tiny::Manual::QuickStart
+      meta:
+        - name: description
+          property: "s:abstract dc:description og:description"
+          content: "The quickest way to get up and running with Exporter::Tiny."
     - name: manual/exporting
       title: Exporting
       pod: Exporter::Tiny::Manual::Exporting
+      meta:
+        - name: description
+          property: "s:abstract dc:description og:description"
+          content: "Creating an exporter using Exporter::Tiny."
     - name: manual/importing
       title: Importing
       pod: Exporter::Tiny::Manual::Importing
+      meta:
+        - name: description
+          property: "s:abstract dc:description og:description"
+          content: "Importing from Exporter::Tiny-based modules."
     - name: manual/etc
       title: Etc
       pod: Exporter::Tiny::Manual::Etc
+      meta:
+        - name: description
+          property: "s:abstract dc:description og:description"
+          content: "Odds and ends."
     - divider:
     - name: manual/Exporter-Tiny
       pod: Exporter::Tiny
+      meta:
+        - name: description
+          property: "s:abstract dc:description og:description"
+          content: "An exporter with the features of Sub::Exporter but only core dependencies."
     - name: manual/Exporter-Shiny
       pod: Exporter::Shiny
+      meta:
+        - name: description
+          property: "s:abstract dc:description og:description"
+          content: "Shortcut for Exporter::Tiny."
     - name: manual/Exporter-Almighty
       pod: Exporter::Almighty
+      meta:
+        - name: description
+          property: "s:abstract dc:description og:description"
+          content: "Combining Exporter::Tiny with some other stuff for added power."
 - name: metacpan
   title: CPAN
   icon: '<i class="fa-solid fa-circle-dot"></i>'
